@@ -1,0 +1,24 @@
+{
+  "name": "nodesql",
+  "version": "0.0.0",
+  "description": "node mysql homework",
+  "main": "nodesql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongpyang/NodeMySql.git"
+  },
+  "author": "kong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kongpyang/NodeMySql/issues"
+  },
+  "homepage": "https://github.com/kongpyang/NodeMySql#readme",
+  "dependencies": {
+    "cli-table3": "^0.5.1",
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  }
+}
