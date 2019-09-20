@@ -62,7 +62,7 @@ function orderPurchase() {
         orderPurchase();
 
       }
-      connection.query("UPDATE products quantity SET ? WHERE ?" + newAmount + function(err, data) {
+      connection.query("UPDATE products quantity SET ? WHERE ?", function(err, data) {
         if (err) throw err;
 
         [
