@@ -1,7 +1,7 @@
-var mysql = require("mysql");
+const mysql = require("mysql");
 const inquirer = require("inquirer")
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
 
   // Your port; if not 3306
@@ -31,9 +31,9 @@ connection.query("Select * from products", function (err, res) {
 function orderPurchase() {
   inquirer.prompt([
     {
-      name: "buy",
+      name: "id",
       type: "input",
-      message: "\n\n please type in the item you would like to purchase"
+      message: "\n\n please type in the ID of the item you would like to purchase"
     },
     {
       name: "amount",
@@ -41,23 +41,61 @@ function orderPurchase() {
       message: "\n\n Please type in the amount you would like to purchase"
     }
   ]).then(function (answer) {
-    connection.query("select * from products where id = ?", answer.buy, function (err, res) {
-      if (err) throw err;
 
-      // console.log(parseInt(answer.amount))
-      // console.log(res.stock_quantity)
+    connection.query("select * from products where id = ?", answer.id, function (err, res) {
+      
+      // let newAmount = res[0].stock_quantity - answer.newAmount;
+
+      if (err) throw err;
       if (!res.length) {
         console.log("sorry, please select an item that is in the inventory. Please try again.");
         orderPurchase();
       } else if (parseInt(answer.amount) > parseInt(res[0].stock_quantity)) {
-        console.log("sorry selected amount not in the inventory, please try again");
+        console.log(" Insufficient quantity!, please try again");
+        
         orderPurchase();
       } else {
 
-// update database
-// inform the user " "
-// kill the connection//
+        let totalCost = res[0].price * answer.amount;
+
+        console.log(`Awesome, your total is ${totalCost}`);
+        orderPurchase();
+
       }
+      connection.query("UPDATE products quantity SET ? WHERE ?" + newAmount + function(err, data) {
+        if (err) throw err;
+
+        [
+          {
+            stock_quantity: newAmount,
+            id: (answer.id)
+          }
+        
+      ]})
+    
+      inquirer.prompt(
+        {
+        type: "input",
+        name: "buyMore",
+        message: "Thank You"       
+      }
+      
+      )
+      .then(function (answer) {
+        if (answer.buyMore) {
+          console.log(orderPurchase());
+        }
+        else {
+          console.log("See You")
+
+          
+          // kill the connection//
+          connection.end();
+        }
+      })
+
+
     })
   })
 }
+

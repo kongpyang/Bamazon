@@ -18,28 +18,31 @@ INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
 VALUES (10, "TV", "Electronics", 300, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (11, "Radio", "Electronics", 300, 5 );
+VALUES (11, "Radio", "Electronics", 150, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (12, "Computer", "Electronics", 300, 5 );
+VALUES (12, "Computer", "Electronics", 600, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (13, "LapTop", "Electronics", 300, 5 );
+VALUES (13, "LapTop", "Electronics", 500, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (14, "GameConsole", "Electronics", 300, 5 );
+VALUES (14, "GameConsole", "Electronics", 250, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (15, "Fridge", "Electronis", 300, 5 );
+VALUES (15, "Fridge", "Electronics", 700, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (16, "Lamp", "Electronis", 300, 5 );
+VALUES (16, "Lamp", "Electronics", 100, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (17, "lawnMower", "Electronis", 300, 5 );
+VALUES (17, "lawnMower", "Electronics", 300, 5 );
 
 INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
-VALUES (18, "Celluar", "Electronis", 300, 5 );
+VALUES (18, "Celluar", "Electronics", 300, 5 );
 
+INSERT INTO products (id, product_name, department_name, price,  stock_quantity)
+VALUES (18, "Printers", "Electronics", 150, 5 );
 
+SELECT * FROM products;
 
